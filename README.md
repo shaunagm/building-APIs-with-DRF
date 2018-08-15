@@ -1,5 +1,7 @@
 # Building APIs with Django REST Framework
 
+Note: [code_samples.md](code_samples.md) contains code samples for the training.
+
 ## Getting set up
 
 1. Download this repository using git clone:
