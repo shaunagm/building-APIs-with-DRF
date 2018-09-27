@@ -20,7 +20,7 @@ class ArticleSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
     	instance.title = validated_data.get('title', instance.title)
-    	instance.content = validated_data.get('code', instance.content)
+    	instance.content = validated_data.get('content', instance.content)
     	instance.published = validated_data.get('published', instance.published)
     	instance.datetime_published = validated_data.get('datetime_published', instance.datetime_published)
     	instance.save()
@@ -49,7 +49,8 @@ Parsing data back into the database:
 
 ```python
 from django.utils.six import BytesIO
-stream = BytesIO(content)
+new_content = rendered_data
+stream = BytesIO(new_content)
 from rest_framework.parsers import JSONParser
 data = JSONParser().parse(stream)
 serializer = ArticleSerializer(data=data, many=True)
